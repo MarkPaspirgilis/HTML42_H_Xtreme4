@@ -1,0 +1,19 @@
+{
+    "init": "plugin_start.php",
+    "structure": {
+        "x4": {
+            "redirect": "x4/index"
+        },
+        "x4/index": {
+            "controller": "X4Admin",
+            "base": "templates/base_x4admin.php"
+        },
+        "x4admin_script.js": {
+            "type": "javascript",
+            "files": [
+                "js/xtreme.js",
+                "js/x4admin.js"
+            ]
+        }
+    }
+}

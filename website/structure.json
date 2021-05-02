@@ -1,0 +1,39 @@
+{
+    "": {
+        "redirect": "index",
+        "status": 301
+    },
+    "index": {},
+    
+    "styles.css": {
+        "type": "less",
+        "files": [
+            "less/variables.less",
+            "less/basics.less"
+        ]
+    },
+    "preview.css": {
+        "type": "less",
+        "files": [
+            "less/variables.less",
+            "less/basics.less",
+            "less/preview.less"
+        ]
+    },
+    
+    "jquery.js": {
+        "type": "javascript",
+        "files": [
+            "js/jquery.js",
+            "js/jquery-ui.js",
+            "js/jquery-touch-punch.js",
+            "js/jquery-xtreme.js"
+        ]
+    },
+    "script.js": {
+        "type": "javascript",
+        "files": [
+            "js/xtreme.js"
+        ]
+    }
+}
