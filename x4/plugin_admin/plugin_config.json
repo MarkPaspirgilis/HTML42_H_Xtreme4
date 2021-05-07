@@ -9,6 +9,7 @@
             "base": "templates/base_x4admin.php"
         },
         "x4/pages": {
+            "cv": "url",
             "controller": "X4Admin",
             "base": "templates/base_x4admin.php"
         },

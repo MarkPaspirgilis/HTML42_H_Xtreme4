@@ -20,6 +20,19 @@ define('BASEURL', 'http' . (is_https() ? 's' : '') . '://' . $_SERVER['SERVER_NA
 X4::load();
 X4::plugins_load();
 
+#Handle/Load Controller
+$File_controller_trylist = File::_create_try_list(strtolower(X4::$config['app']['controller']), array('.controller.php'), array('controller/'));
+$File_controller = File::instance_of_first_existing_file($File_controller_trylist);
+if ($File_controller->exists) {
+    include $File_controller->path;
+    $controller_name = X4::$config['app']['controller'] . 'Controller';
+    $Controller = new $controller_name;
+    $view_name = 'view_' . X4::$config['app']['view'];
+    if (method_exists($Controller, $view_name)) {
+        $Controller::$view_name();
+    }
+}
+
 #Handle Redirect
 if (is_string(X4::$config['redirect']) && !empty(X4::$config['redirect'])) {
     Utilities::redirect(X4::$config['redirect'], X4::$config['status']);
