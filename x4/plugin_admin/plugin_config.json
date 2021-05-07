@@ -8,11 +8,23 @@
             "controller": "X4Admin",
             "base": "templates/base_x4admin.php"
         },
+        "x4/pages": {
+            "controller": "X4Admin",
+            "base": "templates/base_x4admin.php"
+        },
         "x4admin_script.js": {
             "type": "javascript",
             "files": [
                 "js/xtreme.js",
                 "js/x4admin.js"
+            ]
+        },
+        "x4admin_styles.css": {
+            "type": "less",
+            "files": [
+                "less/variables.less",
+                "less/basics.less",
+                "less/x4admin.less"
             ]
         }
     }

@@ -10,6 +10,16 @@
         <div id="page">
             <?= File::instance('templates/header.php')->get_content() ?>
             <main>
+                <aside>
+                    <ul>
+                        <li>
+                            <a href="index">Overview</a>
+                        </li>
+                        <li>
+                            <a href="pages">Pages</a>
+                        </li>
+                    </ul>
+                </aside>
                 <article>#yield#</article>
             </main>
             <footer></footer>
