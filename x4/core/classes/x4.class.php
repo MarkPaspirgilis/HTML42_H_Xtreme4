@@ -49,6 +49,14 @@ class X4 {
                     self::$config[$c_key] = self::$config_raw[$c_key];
                 }
             }
+            if(isset(self::$config_raw['cv']) && self::$config_raw['cv'] == 'url' || isset(self::$config_raw['vc']) && self::$config_raw['vc'] == 'url') {
+                if(!isset(self::$config_raw['controller'])) {
+                    self::$config_raw['controller'] = isset(Request::$requested_clean_path_array[0]) ? Request::$requested_clean_path_array[0] : 'index';
+                }
+                if(!isset(self::$config_raw['view'])) {
+                    self::$config_raw['view'] = isset(Request::$requested_clean_path_array[1]) ? Request::$requested_clean_path_array[1] : 'index';
+                }
+            }
             foreach (array('controller', 'view', 'area') as $_k) {
                 if (isset(self::$config_raw[$_k])) {
                     self::$config['app'][$_k] = self::$config_raw[$_k];

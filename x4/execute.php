@@ -9,10 +9,13 @@ include DIR_CORE_CLASSES . 'request.class.php';
 include DIR_CORE_CLASSES . 'response.class.php';
 include DIR_CORE_CLASSES . 'file.class.php';
 include DIR_CORE_CLASSES . 'cache.class.php';
+include DIR_CORE_CLASSES . 'html.class.php';
 
 include DIR_CORE_CLASSES . 'x4.class.php';
 include DIR_CORE_CLASSES . 'controller.class.php';
 include DIR_CORE_CLASSES . 'view.class.php';
+
+define('BASEURL', 'http' . (is_https() ? 's' : '') . '://' . $_SERVER['SERVER_NAME'] . '/' . Request::$url_path_to_script);
 
 X4::load();
 X4::plugins_load();
