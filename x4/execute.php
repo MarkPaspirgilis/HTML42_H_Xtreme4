@@ -10,12 +10,29 @@ include DIR_CORE_CLASSES . 'response.class.php';
 include DIR_CORE_CLASSES . 'file.class.php';
 include DIR_CORE_CLASSES . 'cache.class.php';
 include DIR_CORE_CLASSES . 'html.class.php';
+include DIR_CORE_CLASSES . 'curl.class.php';
 
 include DIR_CORE_CLASSES . 'x4.class.php';
 include DIR_CORE_CLASSES . 'controller.class.php';
 include DIR_CORE_CLASSES . 'view.class.php';
 
 define('BASEURL', 'http' . (is_https() ? 's' : '') . '://' . $_SERVER['SERVER_NAME'] . '/' . Request::$url_path_to_script);
+
+//Project Includes
+if(is_dir(DIR_ROOT . 'classes')) {
+    foreach(File::ls(DIR_ROOT . 'classes', true, true) as $class_file) {
+        if(strstr($class_file, '.class.php')) {
+            include_once $class_file;
+        }
+    }
+}
+if(is_dir(DIR_ROOT . 'functions')) {
+    foreach(File::ls(DIR_ROOT . 'functions', true, true) as $php_file) {
+        if(strstr($php_file, '.php')) {
+            include_once $php_file;
+        }
+    }
+}
 
 X4::load();
 X4::plugins_load();
@@ -44,6 +61,13 @@ switch (X4::$config['type']) {
     case 'coffee':
     case 'coffeescript':
         include DIR_CORE_MODES . 'script.php';
+        break;
+    case 'image':
+    case 'images':
+    case 'jpg':
+    case 'png':
+    case 'gif':
+        include DIR_CORE_MODES . 'image.php';
         break;
     default:
         include DIR_CORE_MODES . 'default.php';

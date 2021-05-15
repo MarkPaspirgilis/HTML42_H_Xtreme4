@@ -1,6 +1,8 @@
 <?php
 
 class Html {
+    
+    public static $link_hrefs = array();
 
     public static function a($params) {
         $html = '<a';
@@ -22,6 +24,9 @@ class Html {
         }
         foreach ($config['attr'] as $key => $value) {
             $html .= ' ' . $key . '="' . $value . '"';
+        }
+        if(isset($config['attr']['href']) && !empty($config['attr']['href'])) {
+            array_push(self::$link_hrefs, $config['attr']['href']);
         }
         $html .= '>';
         $html .= $config['innerhtml'];

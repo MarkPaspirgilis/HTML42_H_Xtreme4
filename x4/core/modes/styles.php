@@ -8,7 +8,11 @@ if (isset(X4::$config_raw['type']) && is_string(X4::$config_raw['type']) && !emp
 $filepathes = __filepathes(__files());
 $filetimestamp = __filetimstamp($filepathes);
 $cache_filename = 'style_' . md5(implode($filepathes)) . '_' . $filetimestamp . '.css';
-$cache_filepath = Cache::$dir . $cache_filename;
+$assets_cachedir = Cache::$dir . 'assets/';
+if(!is_dir($assets_cachedir)) {
+    @mkdir($assets_cachedir);
+}
+$cache_filepath = $assets_cachedir . $cache_filename;
 $File = File::instance($cache_filepath);
 if (!$File->exists) {
     $style_content_raw = __file_concat($filepathes);
