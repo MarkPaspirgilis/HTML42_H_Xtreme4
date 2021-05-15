@@ -14,7 +14,11 @@ switch ($type) {
 $filepathes = __filepathes(__files());
 $filetimestamp = __filetimstamp($filepathes);
 $cache_filename = 'script_' . md5(implode($filepathes)) . '_' . $filetimestamp . '.js';
-$cache_filepath = Cache::$dir . $cache_filename;
+$assets_cachedir = Cache::$dir . 'assets/';
+if(!is_dir($assets_cachedir)) {
+    @mkdir($assets_cachedir);
+}
+$cache_filepath = $assets_cachedir . $cache_filename;
 $File = File::instance($cache_filepath);
 if (!$File->exists) {
     $script_content_raw = __file_concat($filepathes);
