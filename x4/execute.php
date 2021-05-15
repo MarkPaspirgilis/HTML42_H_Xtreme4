@@ -19,16 +19,16 @@ include DIR_CORE_CLASSES . 'view.class.php';
 define('BASEURL', 'http' . (is_https() ? 's' : '') . '://' . $_SERVER['SERVER_NAME'] . '/' . Request::$url_path_to_script);
 
 //Project Includes
-if(is_dir(DIR_ROOT . 'classes')) {
-    foreach(File::ls(DIR_ROOT . 'classes', true, true) as $class_file) {
-        if(strstr($class_file, '.class.php')) {
+if (is_dir(DIR_ROOT . 'classes')) {
+    foreach (File::ls(DIR_ROOT . 'classes', true, true) as $class_file) {
+        if (strstr($class_file, '.class.php')) {
             include_once $class_file;
         }
     }
 }
-if(is_dir(DIR_ROOT . 'functions')) {
-    foreach(File::ls(DIR_ROOT . 'functions', true, true) as $php_file) {
-        if(strstr($php_file, '.php')) {
+if (is_dir(DIR_ROOT . 'functions')) {
+    foreach (File::ls(DIR_ROOT . 'functions', true, true) as $php_file) {
+        if (strstr($php_file, '.php')) {
             include_once $php_file;
         }
     }
@@ -83,7 +83,12 @@ switch (X4::$config['type']) {
         include DIR_CORE_MODES . 'image.php';
         break;
     default:
-        include DIR_CORE_MODES . 'default.php';
+        $File_mode = File::instance('modes/' . X4::$config['type'] . '.php');
+        if($File_mode->exists) {
+            include $File_mode->path;
+        } else {
+            include DIR_CORE_MODES . 'default.php';
+        }
 }
 
 Response::deliver(X4::$content);
