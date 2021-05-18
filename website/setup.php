@@ -36,7 +36,7 @@ $basic_files = array(
     'files/.gitkeep' => '',
     'views/index/index.html' => '<h1>Example-Index</h1>',
     'environment' => 'dev',
-    'templates/.gitkeep' => '',
+    'templates/base.php' => lc_base(),
     'texts.ini' => lc_texts(),
     'translations.ini' => lc_translations(),
 );
@@ -82,7 +82,39 @@ function lc_structure() {
         "redirect": "index",
         "status": 301
     },
-    "index": {}
+    "index": {},
+    
+    "styles.css": {
+        "type": "less",
+        "files": [
+            "less/variables.less",
+            "less/basics.less"
+        ]
+    },
+    "preview.css": {
+        "type": "less",
+        "files": [
+            "less/variables.less",
+            "less/basics.less",
+            "less/preview.less"
+        ]
+    },
+    
+    "jquery.js": {
+        "type": "javascript",
+        "files": [
+            "js/jquery.js",
+            "js/jquery-ui.js",
+            "js/jquery-touch-punch.js",
+            "js/jquery-xtreme.js"
+        ]
+    },
+    "script.js": {
+        "type": "javascript",
+        "files": [
+            "js/xtreme.js"
+        ]
+    }
 }';
 }
 
@@ -119,5 +151,30 @@ function lc_translations() {
 
 [en]
 
+';
+}
+
+function lc_base() {
+    return '<!DOCTYPE html>
+<html>
+    <head>
+        <title>Website</title>
+        <meta charset="<?= X4::$config[\'encoding\'] ?>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link media="all" href="preview.css" rel="stylesheet" />
+        <link media="none" href="styles.css" rel="stylesheet" onload="media = \'all\'" />
+    </head>
+    <body id="body">
+        <div id="page">
+            <?= File::instance(\'templates/header.php\')->get_content() ?>
+            <main>
+                <article>#yield#</article>
+            </main>
+            <footer></footer>
+        </div>
+        <script src="script.js" async defer></script>
+        <script src="jquery.js" async defer></script>
+    </body>
+</html>
 ';
 }

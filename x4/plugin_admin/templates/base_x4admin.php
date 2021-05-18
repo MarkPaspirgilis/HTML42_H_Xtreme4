@@ -12,12 +12,11 @@
             <main>
                 <aside>
                     <ul>
-                        <li>
-                            <a href="index">Overview</a>
-                        </li>
-                        <li>
-                            <a href="pages">Pages</a>
-                        </li>
+                        <?php foreach ($GLOBALS['admin_navi'] as $url => $name) { ?>
+                            <li>
+                                <a href="<?= $url ?>"><?= $name ?></a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </aside>
                 <article>#yield#</article>

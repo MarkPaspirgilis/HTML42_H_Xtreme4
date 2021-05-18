@@ -1,0 +1,10 @@
+{
+    "init": "plugin_start.php",
+    "structure": {
+        "x4/gaming": {
+            "cv": "url",
+            "controller": "X4Gaming",
+            "base": "templates/base_x4admin.php"
+        }
+    }
+}
