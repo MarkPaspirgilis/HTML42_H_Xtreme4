@@ -1,0 +1,25 @@
+[data-xtreme-gallery] {
+    .clear_after();
+    .xg_item {
+        max-width: 100%;
+        float: left;
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            width: auto;
+        }
+        &_name {
+
+        }
+        &_description {
+
+        }
+        @media (min-width: 1001px) { width: 100% / 3}
+        @media (max-width: 750px) { width: 100% / 2}
+        @media (max-width: 420px) {
+            float: none;
+            width: 100%;
+        }
+    }
+}

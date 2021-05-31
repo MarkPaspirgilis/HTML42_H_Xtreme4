@@ -44,16 +44,24 @@ class X4 {
     public static function load() {
         if (isset(self::$structure[Request::$requested_clean_path])) {
             self::$config_raw = self::$structure[Request::$requested_clean_path];
+        } else {
+            foreach (self::$structure as $url_path => $config) {
+                if (!empty($url_path) && preg_match('#' . $url_path . '#', Request::$requested_clean_path)) {
+                    self::$config_raw = self::$structure[$url_path];
+                }
+            }
+        }
+        if (self::$config_raw) {
             foreach (self::$config as $c_key => $c_value) {
                 if (isset(self::$config_raw[$c_key]) && __is_value(self::$config_raw[$c_key])) {
                     self::$config[$c_key] = self::$config_raw[$c_key];
                 }
             }
-            if(isset(self::$config_raw['cv']) && self::$config_raw['cv'] == 'url' || isset(self::$config_raw['vc']) && self::$config_raw['vc'] == 'url') {
-                if(!isset(self::$config_raw['controller'])) {
+            if (isset(self::$config_raw['cv']) && self::$config_raw['cv'] == 'url' || isset(self::$config_raw['vc']) && self::$config_raw['vc'] == 'url') {
+                if (!isset(self::$config_raw['controller'])) {
                     self::$config_raw['controller'] = isset(Request::$requested_clean_path_array[0]) ? Request::$requested_clean_path_array[0] : 'index';
                 }
-                if(!isset(self::$config_raw['view'])) {
+                if (!isset(self::$config_raw['view'])) {
                     self::$config_raw['view'] = isset(Request::$requested_clean_path_array[1]) ? Request::$requested_clean_path_array[1] : 'index';
                 }
             }

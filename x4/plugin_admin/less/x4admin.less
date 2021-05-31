@@ -1,11 +1,118 @@
+@logo_size: 25px;
+@header_height: @logo_size * 1.5;
+#page {
+    min-height: 100vh;
+    > header {
+        background-color: #333;
+        color: #FFF;
+        .x4logo {
+            .h(@header_height);
+            font-size: @logo_size;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+}
 main {
-    aside {
+    .clear_after();
+    @aside_width: 150px;
+    position: relative;
+    &, > aside, > article {
+        min-height: calc(~"100vh - @{header_height}");
+        height: 100%;
+    }
+    > aside {
+        float: left;
+        width: @aside_width;
         ul {
+            .clean_list();
+            background-color: rgba(0, 0, 0, 0.05);
             li {
                 a {
-                    
+                    display: block;
+                    padding: @distance_small;
+                    font-size: 18px;
+                    text-decoration: none;
+                    color: #222;
+                    &:hover {
+                        color: #000;
+                        text-decoration: underline;
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
                 }
             }
+        }
+    }
+    > article {
+        float: right;
+        width: calc(~"100% - @{aside_width}");
+        padding: @distance_small;
+    }
+    &:before {
+        content: '';
+        width: 2px;
+        position: absolute;
+        left: @aside_width;
+        top: 0;
+        bottom: 0;
+        background-color: #333;
+    }
+}
+[data-change-pageconfig] {
+    min-width: 20px;
+    min-height: 20px;
+    cursor: pointer;
+    background-color: #888;
+    color: #EEE;
+    &:before {
+        content: '[E]';
+        font-weight: 700;
+    }
+    &:hover {
+        background-color: #666;
+        color: #FFF;
+    }
+}
+
+div.admintable_wrap {
+    max-width: 100%;
+    overflow-x: auto;
+}
+table.admintable {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.02);
+    color: #444;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+    td {
+        text-align: center;
+        padding: @distance_tiny @distance_small;
+        border-bottom: 3px solid #FFF;
+        &.nopaddingcell {
+            padding: 0;
+        }
+    }
+    > tbody > tr:hover > td {
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+    thead {
+        font-weight: 700;
+        td {
+            color: #333;
+            #page & {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+    tbody {
+        tr:last-child td {
+            border-bottom: 0 none;
+        }
+    }
+    table {
+        > tbody > tr:hover > td {
+            background-color: transparent;
         }
     }
 }

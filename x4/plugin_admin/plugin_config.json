@@ -25,6 +25,7 @@
             "files": [
                 "less/variables.less",
                 "less/basics.less",
+                "less/mixins.less",
                 "less/x4admin.less"
             ]
         }

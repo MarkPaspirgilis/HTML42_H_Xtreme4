@@ -12,6 +12,8 @@ include DIR_CORE_CLASSES . 'cache.class.php';
 include DIR_CORE_CLASSES . 'html.class.php';
 include DIR_CORE_CLASSES . 'curl.class.php';
 
+include DIR_CORE_CLASSES . 'xtreme_gallery.class.php';
+
 include DIR_CORE_CLASSES . 'x4.class.php';
 include DIR_CORE_CLASSES . 'controller.class.php';
 include DIR_CORE_CLASSES . 'view.class.php';
