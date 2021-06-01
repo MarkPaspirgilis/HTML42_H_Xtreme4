@@ -281,6 +281,10 @@ class Utilities {
             return null;
         }
     }
+    
+    public static function fingerprint() {
+        return $_SERVER['HTTP_USER_AGENT'] . '|' . self::remote_ip();
+    }
 
 }
 
