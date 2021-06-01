@@ -1,5 +1,11 @@
 <?php
 
+ini_set('short_open_tag', 1);
+ini_set('magic_quotes_gpc', 1);
+ini_set("memory_limit", "512M");
+
+@session_start();
+
 $dir = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__) . '/';
 
 include $dir . 'variables.php';
@@ -86,7 +92,7 @@ switch (X4::$config['type']) {
         break;
     default:
         $File_mode = File::instance('modes/' . X4::$config['type'] . '.php');
-        if($File_mode->exists) {
+        if ($File_mode->exists) {
             include $File_mode->path;
         } else {
             include DIR_CORE_MODES . 'default.php';
