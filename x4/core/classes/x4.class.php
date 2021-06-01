@@ -78,16 +78,16 @@ class X4 {
                     self::$config['File'] = $File;
                 }
             }
-            if (isset(self::$config['base']) && is_string(self::$config['base']) && !empty(self::$config['base'])) {
-                $File_trylist = File::_create_try_list(self::$config['base'], array('html', 'php', 'tpl'));
-                $File = File::instance_of_first_existing_file($File_trylist);
-                if ($File->exists) {
-                    self::$config['base'] = $File->path;
-                }
-                self::$config['Base'] = $File;
-            }
-            self::$mime = self::$config['mime'];
         }
+        if (isset(self::$config['base']) && is_string(self::$config['base']) && !empty(self::$config['base'])) {
+            $File_trylist = File::_create_try_list(self::$config['base'], array('html', 'php', 'tpl'));
+            $File = File::instance_of_first_existing_file($File_trylist);
+            if ($File->exists) {
+                self::$config['base'] = $File->path;
+            }
+            self::$config['Base'] = $File;
+        }
+        self::$mime = self::$config['mime'];
     }
 
     public static function plugins_init() {

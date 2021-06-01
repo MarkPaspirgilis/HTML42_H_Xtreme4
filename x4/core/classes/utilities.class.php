@@ -283,7 +283,7 @@ class Utilities {
     }
     
     public static function fingerprint() {
-        return $_SERVER['HTTP_USER_AGENT'] . '|' . self::remote_ip();
+        return $_SERVER['HTTP_USER_AGENT'] . '|' . self::remote_ip() . '|' . DIR_ROOT;
     }
 
 }
