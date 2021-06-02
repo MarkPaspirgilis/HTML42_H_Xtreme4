@@ -281,9 +281,13 @@ class Utilities {
             return null;
         }
     }
-    
+
     public static function fingerprint() {
         return $_SERVER['HTTP_USER_AGENT'] . '|' . self::remote_ip() . '|' . DIR_ROOT;
+    }
+
+    public static function password($string) {
+        return sha1($string . 'XL!');
     }
 
 }

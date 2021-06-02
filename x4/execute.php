@@ -26,6 +26,12 @@ include DIR_CORE_CLASSES . 'view.class.php';
 
 define('BASEURL', 'http' . (is_https() ? 's' : '') . '://' . $_SERVER['SERVER_NAME'] . '/' . Request::$url_path_to_script);
 
+$GLOBALS['ASSET_PREFIX'] = '';
+for($i = 0 ; $i < count(Request::$requested_clean_path_array) - 1 ; $i++) {
+    $GLOBALS['ASSET_PREFIX'] .= '../';
+}
+define('ASSET_PREFIX', $GLOBALS['ASSET_PREFIX']);
+
 //Project Includes
 if (is_dir(DIR_ROOT . 'classes')) {
     foreach (File::ls(DIR_ROOT . 'classes', true, true) as $class_file) {
@@ -44,6 +50,8 @@ if (is_dir(DIR_ROOT . 'functions')) {
 
 X4::load();
 X4::plugins_load();
+X4::plugins_event_start();
+X4::plugins_event_start2();
 
 #Handle/Load Controller
 $File_controller_trylist = File::_create_try_list(strtolower(X4::$config['app']['controller']), array('.controller.php'), array('controller/'));
@@ -57,6 +65,7 @@ if ($File_controller->exists) {
         $Controller::$view_name();
     }
 }
+X4::plugins_event_end();
 
 #Handle Redirect
 if (is_string(X4::$config['redirect']) && !empty(X4::$config['redirect'])) {
@@ -98,5 +107,7 @@ switch (X4::$config['type']) {
             include DIR_CORE_MODES . 'default.php';
         }
 }
+
+X4::plugins_event_close();
 
 Response::deliver(X4::$content);

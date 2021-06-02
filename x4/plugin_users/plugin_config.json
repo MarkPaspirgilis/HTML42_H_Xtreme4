@@ -1,0 +1,7 @@
+{
+    "init": "plugin_start.php",
+    "start2": "plugin_event_start2.php",
+    "structure": {
+        
+    }
+}

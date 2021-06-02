@@ -1,0 +1,4 @@
+{
+    "init": "plugin_start.php",
+    "start": "plugin_event_start.php"
+}

@@ -102,7 +102,9 @@ class X4 {
                     'events' => array(
                         'init' => @__is_string_default_null($plugin_config['init']),
                         'start' => @__is_string_default_null($plugin_config['start']),
+                        'start2' => @__is_string_default_null($plugin_config['start2']),
                         'end' => @__is_string_default_null($plugin_config['end']),
+                        'close' => @__is_string_default_null($plugin_config['close']),
                     ),
                     'structure' => isset($plugin_config['structure']) ? $plugin_config['structure'] : array(),
                 );
@@ -115,6 +117,42 @@ class X4 {
             $init_script = $plugin['events']['init'] ? $plugin['dir'] . $plugin['events']['init'] : null;
             if ($init_script) {
                 include $init_script;
+            }
+        }
+    }
+
+    public static function plugins_event_start() {
+        foreach (self::$plugins as $plugin) {
+            $script = $plugin['events']['start'] ? $plugin['dir'] . $plugin['events']['start'] : null;
+            if ($script) {
+                include $script;
+            }
+        }
+    }
+
+    public static function plugins_event_start2() {
+        foreach (self::$plugins as $plugin) {
+            $script = $plugin['events']['start2'] ? $plugin['dir'] . $plugin['events']['start2'] : null;
+            if ($script) {
+                include $script;
+            }
+        }
+    }
+
+    public static function plugins_event_end() {
+        foreach (self::$plugins as $plugin) {
+            $script = $plugin['events']['end'] ? $plugin['dir'] . $plugin['events']['end'] : null;
+            if ($script) {
+                include $script;
+            }
+        }
+    }
+
+    public static function plugins_event_close() {
+        foreach (self::$plugins as $plugin) {
+            $script = $plugin['events']['close'] ? $plugin['dir'] . $plugin['events']['close'] : null;
+            if ($script) {
+                include $script;
             }
         }
     }
