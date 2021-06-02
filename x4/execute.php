@@ -69,7 +69,7 @@ X4::plugins_event_end();
 
 #Handle Redirect
 if (is_string(X4::$config['redirect']) && !empty(X4::$config['redirect'])) {
-    Utilities::redirect(X4::$config['redirect'], X4::$config['status']);
+    Utilities::redirect(ASSET_PREFIX . X4::$config['redirect'], X4::$config['status']);
     die;
 }
 

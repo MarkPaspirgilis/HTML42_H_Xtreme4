@@ -15,5 +15,14 @@ class XtremeUser {
             }
         }
     }
+    
+    public function in_group($name) {
+        foreach($this->from_db['groups'] as $group) {
+            if($group['name'] == $name) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
