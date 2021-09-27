@@ -17,6 +17,7 @@ include DIR_CORE_CLASSES . 'file.class.php';
 include DIR_CORE_CLASSES . 'cache.class.php';
 include DIR_CORE_CLASSES . 'html.class.php';
 include DIR_CORE_CLASSES . 'curl.class.php';
+include DIR_CORE_CLASSES . 'texts.class.php';
 
 include DIR_CORE_CLASSES . 'xtreme_gallery.class.php';
 
