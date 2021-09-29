@@ -12,7 +12,7 @@ class Html {
             'attr' => array(),
         );
         if (isset($params['link'])) {
-            $config['href'] = BASEURL . $params['link'];
+            $params['href'] = BASEURL . $params['link'];
         }
         if (isset($params['innerhtml'])) {
             $config['innerhtml'] = $params['innerhtml'];
