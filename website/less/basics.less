@@ -1,0 +1,122 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100vw;
+}
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    * {
+        box-sizing: border-box;
+    }
+}
+html, input, textarea, button, select {
+    font-size: @font_size_normal;
+    font-weight: @font_weight_normal;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: @color_1_normal;
+    &:hover {
+        color: @color_1_dark;
+        text-decoration: underline;
+    }
+}
+
+.center_wrap {
+    max-width: @page_width;
+    margin: 0 auto;
+}
+
+main {
+    padding: (@header_height + @distance_small) @distance_normal @distance_small;
+    min-height: 100vh;
+    article {
+        > *:first-child {
+            margin-top: 0;
+        }
+        > *:last-child {
+            margin-bottom: 0;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            margin: 0 0 @distance_tiny;
+        }
+        h1 {
+            font-size: @font_size_huge;
+            margin-top: @distance_big;
+        }
+        h2 {
+            font-size: @font_size_big;
+            margin-top: @distance_normal;
+        }
+        h3 {
+            font-size: @font_size_normal;
+            margin-top: @distance_small;
+        }
+        h4 {
+            font-size: @font_size_normal;
+            margin-top: @distance_tiny;
+        }
+    }
+}
+
+.full_width {
+    position: relative;
+    margin-left: calc(~"50% - 50vw");
+    width: 100vw;
+}
+.margin_bottom_big {
+    margin-bottom: @distance_big;
+}
+.margin_bottom_huge {
+    margin-bottom: @distance_huge;
+}
+.margin_top_big {
+    margin-top: @distance_big;
+}
+.margin_top_huge {
+    margin-top: @distance_huge;
+}
+.padding_bottom_big {
+    padding-bottom: @distance_big;
+}
+.padding_bottom_huge {
+    padding-bottom: @distance_huge;
+}
+.padding_top_big {
+    padding-top: @distance_big;
+}
+.padding_top_huge {
+    padding-top: @distance_huge;
+}
+
+#page .start_top {
+    margin-top: -@distance_small;
+}
+
+#page .font_bold {
+    font-weight: @font_weight_big;
+}
+#page .font_center {
+    text-align: center;
+}
+
+[class*="max_width_"] {
+    margin: 0 auto;
+}
+.max_width_100 {max-width: 100px;}
+.max_width_150 {max-width: 150px;}
+.max_width_200 {max-width: 200px;}
+.max_width_250 {max-width: 250px;}
+.max_width_300 {max-width: 300px;}
+.max_width_350 {max-width: 350px;}
+.max_width_400 {max-width: 400px;}
+.max_width_450 {max-width: 450px;}
+.max_width_500 {max-width: 500px;}
+.max_width_550 {max-width: 550px;}

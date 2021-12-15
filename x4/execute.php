@@ -19,7 +19,16 @@ foreach (array(
 }
 define('IS_CLI', ($_SERVER['REQUEST_URI'] === '' && $_SERVER['SERVER_NAME'] === 'localhost' && $_SERVER['SERVER_PORT'] === 0));
 
-//
+include $dir . 'variables.php';
+include DIR_CORE . 'functions.php';
+include DIR_CORE_CLASSES . 'utilities.class.php';
+include DIR_CORE_CLASSES . 'request.class.php';
+include DIR_CORE_CLASSES . 'response.class.php';
+include DIR_CORE_CLASSES . 'file.class.php';
+include DIR_CORE_CLASSES . 'cache.class.php';
+include DIR_CORE_CLASSES . 'html.class.php';
+include DIR_CORE_CLASSES . 'curl.class.php';
+include DIR_CORE_CLASSES . 'texts.class.php';
 
 $dir = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__) . '/';
 

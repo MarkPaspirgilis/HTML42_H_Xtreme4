@@ -9,15 +9,10 @@
         "type": "less",
         "files": [
             "less/variables.less",
-            "less/basics.less"
-        ]
-    },
-    "preview.css": {
-        "type": "less",
-        "files": [
-            "less/variables.less",
+            "less/mixins.less",
             "less/basics.less",
-            "less/preview.less"
+            "less/header.less",
+            "less/footer.less"
         ]
     },
     

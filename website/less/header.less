@@ -1,0 +1,44 @@
+header {
+    background-color: #FFF;
+    box-shadow: 0 0 @distance_small rgba(0, 0, 0, 0.75);
+    padding: 0 @distance_normal;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: @header_height;
+    z-index: 999;
+    .center_wrap {
+        height: @header_height;
+        position: relative;
+    }
+    .logo {
+        height: @logo_height;
+        width: @logo_width;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: @distance_small;
+        text-indent: -9999px;
+    }
+    nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: @header_height;
+    }
+    ul {
+        @nav_link_height: @header_height - (@distance_small * 2);
+        .clear_after();
+        .clean_list();
+        li {
+            float: left;
+            a {
+                height: @header_height;
+                line-height: @nav_link_height;
+                display: block;
+                padding: @distance_small;
+            }
+        }
+    }
+}
