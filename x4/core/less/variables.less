@@ -1,5 +1,6 @@
 //Basics
 @amplifier: 20%;
+@page_width: 1200px;
 
 //Fonts
 @font_size_normal: 14px;
@@ -14,6 +15,8 @@
 @font_weight_small: 100;
 @font_weight_tiny: 100;
 
+@letter_spacing_normal: 0.5px;
+
 //Sizes
 @distance_normal: 20px;
 @distance_big: @distance_normal * 2;
@@ -23,23 +26,30 @@
 
 //Colors
 @grey_normal: #AAA;
-@grey_light: lighter(@grey_normal, @amplifier);
-@grey_lighter: lighter(@grey_light, @amplifier);
+@grey_light: #CCC;
+@grey_lighter: #F6F6F6;
 @grey_dark: darker(@grey_normal, @amplifier);
 @grey_darker: darker(@grey_dark, @amplifier);
 @grey_rgba: rgba(0, 0, 0, 0.1);
 
 @color_1: #26E;
 @color_1_normal: @color_1;
-@color_1_light: lighter(@color_1_normal, @amplifier);
-@color_1_lighter: lighter(@color_1_light, @amplifier);
+@color_1_light: lighten(@color_1_normal, @amplifier);
+@color_1_lighter: lighten(@color_1_light, @amplifier);
 @color_1_dark: darker(@color_1_normal, @amplifier);
 @color_1_darker: darker(@color_1_dark, @amplifier);
 
 @color_2: #E62;
 @color_2_normal: @color_2;
-@color_2_light: lighter(@color_2_normal, @amplifier);
-@color_2_lighter: lighter(@color_2_light, @amplifier);
+@color_2_light: lighten(@color_2_normal, @amplifier);
+@color_2_lighter: lighten(@color_2_light, @amplifier);
 @color_2_dark: darker(@color_2_normal, @amplifier);
 @color_2_darker: darker(@color_2_dark, @amplifier);
 
+@color_text_normal: #333;
+@color_text_dark: #111;
+@color_text_light: #555;
+
+//
+@header_height: 80px;
+@footer_height: 100px;

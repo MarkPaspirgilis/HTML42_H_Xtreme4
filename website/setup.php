@@ -37,6 +37,8 @@ $basic_files = array(
     'views/index/index.html' => '<h1>Example-Index</h1>',
     'environment' => 'dev',
     'templates/base.php' => lc_base(),
+    'templates/header.php' => lc_templates_header(),
+    'templates/footer.php' => lc_templates_footer(),
     'texts.ini' => lc_texts(),
     'translations.ini' => lc_translations(),
 );
@@ -88,6 +90,7 @@ function lc_structure() {
         "type": "less",
         "files": [
             "less/variables.less",
+            "less/mixins.less",
             "less/basics.less"
         ]
     },
@@ -95,6 +98,7 @@ function lc_structure() {
         "type": "less",
         "files": [
             "less/variables.less",
+            "less/mixins.less",
             "less/basics.less",
             "less/preview.less"
         ]
@@ -161,8 +165,8 @@ function lc_base() {
         <title>Website</title>
         <meta charset="<?= X4::$config[\'encoding\'] ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link media="all" href="preview.css" rel="stylesheet" />
-        <link media="none" href="styles.css" rel="stylesheet" onload="media = \'all\'" />
+        <link media="all" href="<?= ASSET_PREFIX ?>preview.css" rel="stylesheet" />
+        <link media="none" href="<?= ASSET_PREFIX ?>styles.css" rel="stylesheet" onload="media = \'all\'" />
     </head>
     <body id="body">
         <div id="page">
@@ -170,11 +174,62 @@ function lc_base() {
             <main>
                 <article>#yield#</article>
             </main>
-            <footer></footer>
+            <?= File::instance(\'templates/footer.php\')->get_content() ?>
         </div>
         <script src="script.js" async defer></script>
         <script src="jquery.js" async defer></script>
     </body>
 </html>
+';
+}
+
+function lc_templates_header() {
+    return '<header>
+    <div class="logo">Company</div>
+    <nav>
+        <ul>
+            <?php
+            $nav = array(
+                \'index/index\' => \'Home\',
+            );
+            foreach ($nav as $nav_url => $nav_content) {
+                echo \'<li>\';
+                echo \'<a href="\' . ASSET_PREFIX . $nav_url . \'">\';
+                echo $nav_content;
+                echo \'</a>\';
+                echo \'</li>\';
+            }
+            ?>
+        </ul>
+    </nav>
+</header>';
+}
+
+function lc_templates_footer() {
+    return '<footer>
+    <div class="center_wrap">
+        <div id="footer_navigation">
+            <nav>
+                <ul>
+                    <?php
+                    $navigation = array(
+                        \'index/index\' => \'Home\',
+                    );
+                    foreach ($navigation as $link_href => $link_text) {
+                        echo \'<li>\';
+                        echo \'<a \';
+                        echo \' href="\' . ASSET_PREFIX . $link_href . \'"\';
+                        echo \'>\' . $link_text . \'</a>\';
+                        echo \'</li>\';
+                    }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+        <div class="copyright">
+            copyright Company &copy; 2021
+        </div>
+    </div>
+</footer>
 ';
 }
