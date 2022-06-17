@@ -1,0 +1,140 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+html {
+  font-size: 14px;
+  font-weight: 300;
+}
+html * {
+  box-sizing: border-box;
+}
+#page {
+  min-height: 100vh;
+}
+#page > header {
+  background-color: #333;
+  color: #FFF;
+}
+#page > header .x4logo {
+  height: 37.5px;
+  line-height: 37.5px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+}
+main {
+  position: relative;
+}
+main:after {
+  content: '';
+  display: table;
+  clear: both;
+  float: none;
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+main,
+main > aside,
+main > article {
+  min-height: calc(100vh - 37.5px);
+  height: 100%;
+}
+main > aside {
+  float: left;
+  width: 150px;
+}
+main > aside ul {
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+main > aside ul > li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+main > aside ul li a {
+  display: block;
+  padding: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #222;
+}
+main > aside ul li a:hover {
+  color: #000;
+  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+main > article {
+  float: right;
+  width: calc(100% - 150px);
+  padding: 10px;
+}
+main:before {
+  content: '';
+  width: 2px;
+  position: absolute;
+  left: 150px;
+  top: 0;
+  bottom: 0;
+  background-color: #333;
+}
+[data-change-pageconfig] {
+  min-width: 20px;
+  min-height: 20px;
+  cursor: pointer;
+  background-color: #888;
+  color: #EEE;
+}
+[data-change-pageconfig]:before {
+  content: '[E]';
+  font-weight: 700;
+}
+[data-change-pageconfig]:hover {
+  background-color: #666;
+  color: #FFF;
+}
+div.admintable_wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+table.admintable {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #444;
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+}
+table.admintable td {
+  text-align: center;
+  padding: 5px 10px;
+  border-bottom: 3px solid #FFF;
+}
+table.admintable td.nopaddingcell {
+  padding: 0;
+}
+table.admintable > tbody > tr:hover > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+table.admintable thead {
+  font-weight: 700;
+}
+table.admintable thead td {
+  color: #333;
+}
+#page table.admintable thead td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+table.admintable tbody tr:last-child td {
+  border-bottom: 0 none;
+}
+table.admintable table > tbody > tr:hover > td {
+  background-color: transparent;
+}
