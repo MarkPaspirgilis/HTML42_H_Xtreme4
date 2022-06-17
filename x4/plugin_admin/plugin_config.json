@@ -17,7 +17,8 @@
             "type": "javascript",
             "files": [
                 "js/xtreme.js",
-                "js/x4admin.js"
+                "js/x4admin.js",
+                "js/x4admin_project.js"
             ]
         },
         "x4admin_styles.css": {

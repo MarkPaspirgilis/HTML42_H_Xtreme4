@@ -1,3 +1,15 @@
 {
-    "init": "plugin_start.php"
+    "init": "plugin_start.php",
+    "structure": {
+        "jquery.css": {
+            "type": "css",
+            "files": [
+                "less/jquery-ui.css"
+            ]
+        },
+        "images/jquery/(.*).[jpg|jpeg|png|gif]": {
+            "type": "html",
+            "filepath": "plugin_jquery/display_image.php"
+        }
+    }
 }

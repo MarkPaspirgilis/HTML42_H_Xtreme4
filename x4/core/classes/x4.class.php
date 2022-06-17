@@ -48,6 +48,7 @@ class X4 {
             foreach (self::$structure as $url_path => $config) {
                 if (!empty($url_path) && preg_match('#' . $url_path . '#', Request::$requested_clean_path)) {
                     self::$config_raw = self::$structure[$url_path];
+                    break;
                 }
             }
         }
