@@ -58,7 +58,7 @@ if (is_dir(DIR_ROOT . 'classes')) {
 }
 if (is_dir(DIR_ROOT . 'functions')) {
     foreach (File::ls(DIR_ROOT . 'functions', true, true) as $php_file) {
-        if (strstr($php_file, '.php')) {
+        if (strstr($php_file, '.php') && !strstr($php_file, '_after_plugins.php')) {
             include_once $php_file;
         }
     }
@@ -68,6 +68,10 @@ X4::load();
 X4::plugins_load();
 X4::plugins_event_start();
 X4::plugins_event_start2();
+$File_after_plugins = File::instance(DIR_ROOT . 'functions/_after_plugins.php');
+if ($File_after_plugins->exists) {
+    include $File_after_plugins->path;
+}
 
 #Handle/Load Controller
 $File_controller_trylist = File::_create_try_list(strtolower(X4::$config['app']['controller']), array('.controller.php'), array('controller/'));
