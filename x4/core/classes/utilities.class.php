@@ -290,6 +290,19 @@ class Utilities {
         return sha1($string . 'XL!');
     }
 
+    public static function unzip($zipfile, $dir = null) {
+        if (!is_string($dir)) {
+            $dir = File::_folder($zipfile);
+        }
+        $zip = new ZipArchive();
+        if ($res = $zip->open($zipfile)) {
+            $zip->extractTo($dir);
+            $zip->close();
+            return true;
+        }
+        return false;
+    }
+
 }
 
 //Shortcuts
