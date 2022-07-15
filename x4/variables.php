@@ -22,4 +22,4 @@ define('DAY', HOUR * 24);
 define('WEEK', DAY * 7);
 
 
-define('ENV', strtolower(trim(file_get_contents(FILE_ENVIRONMENT))));
+define('ENV', is_file(FILE_ENVIRONMENT) ? strtolower(trim(file_get_contents(FILE_ENVIRONMENT))) : 'DEV');
